@@ -1,10 +1,11 @@
 #!/system/bin/sh
+date="$( date "+%y年%m月%d日%H时%M分%S秒")"
+#自动获得最大FPS和流畅性能
 #最大性能
-#提升 Gpu 和 Cpu性能
-#修复 FPS 下降
-#修复滞后 100%
+#提升Gpu和Cpu性能
+#修复FPS下降
+#修复延迟100%
 #高触摸速度
-#流畅高灵敏度 
 fps="$(dumpsys display | grep -o -E 'fps=[0-9]+(\.[0-9]+)?' | cut -d'=' -f2 | sort -nr | head -n1 | awk '{printf("%d\n", ($1+0.5)/1)}')"
 systems=(
 "debug.javafx.animation.framerate $fps"
